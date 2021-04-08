@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Create new lead</title>
+</head>
+<body>
+
+	<form th:method="POST" th:action="@{/leads}" th:object="${lead}">
+    <label for="name">Enter First Name: </label>
+    <input type="text" th:field="*{FirstName}" id="name"/>
+    <br/>
+    <input type="submit" value="Create!"/>
+     </form>
+
+</body>
+</html>

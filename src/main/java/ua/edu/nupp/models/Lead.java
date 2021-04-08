@@ -8,6 +8,9 @@ public class Lead {
     private String email;
     private String proof;
     
+    public Lead() {
+        
+    }
 
     public Lead(int id, String firstName, String lastName, String title, String email, String proof) {
         this.id = id;

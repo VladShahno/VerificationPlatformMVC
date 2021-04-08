@@ -1,13 +1,14 @@
-
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<title>All</title>
+<title>All Leads</title>
 </head>
 <body>
 
-	<h1>Hello</h1>
+	<div th:each="lead : ${leads}">
+        <a th:href="@{/leads/{id}(id=${lead.getId()})}" th:text="${lead.getFirstName()}">Lead</a>
+    </div>
 
 </body>
 </html>
