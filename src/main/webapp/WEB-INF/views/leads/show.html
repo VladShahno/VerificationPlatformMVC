@@ -1,17 +1,26 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://thymeleaf.org">
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
 <title>Lead</title>
 </head>
 <body>
-
+    
+    <a th:href="@{/leads/{id}/edit(id=${lead.getId()})}">Edit</a>
+    <br/>
 	<p th:text="${lead.getId()}">VALUE</p>
 	<p th:text="${lead.getFirstName()}">VALUE</p>
 	<p th:text="${lead.getLastName()}">VALUE</p>
 	<p th:text="${lead.getTitle()}">VALUE</p>
 	<p th:text="${lead.getEmail()}">VALUE</p>
 	<p th:text="${lead.getProof()}">VALUE</p>
+
+    <br/>
+    <hr/>
+
+    <form th:method="DELETE" th:action="@{/leads/{id}(id=${lead.getId()})}">
+        <input type="submit" value="Delete"/>
+    </form>
 
 </body>
 </html>

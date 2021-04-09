@@ -33,8 +33,15 @@ public class LeadDAO {
     public void update(int id, Lead updetatedLead) {
         Lead leadToBeUpdated = show(id);
         leadToBeUpdated.setFirstName(updetatedLead.getFirstName());
+        leadToBeUpdated.setLastName(updetatedLead.getLastName());
+        leadToBeUpdated.setTitle(updetatedLead.getTitle());
+        leadToBeUpdated.setEmail(updetatedLead.getEmail());
+        leadToBeUpdated.setProof(updetatedLead.getProof());
     }
     
+    public void delete(int id) {
+        leads.removeIf(l -> l.getId() == id);
+    }
     
    
 }

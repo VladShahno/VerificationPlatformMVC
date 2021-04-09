@@ -4,6 +4,7 @@ import ua.edu.nupp.models.*;
 import ua.edu.nupp.dao.LeadDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PatchMapping;
@@ -56,6 +57,12 @@ public class LeadsController {
     @PatchMapping("/{id}")
     public String update(@ModelAttribute("lead") Lead lead, @PathVariable("id") int id) {
         leadDAO.update(id, lead);
+        return "redirect:/leads";
+    }
+    
+    @DeleteMapping("/{id}")
+    public String delete(@PathVariable("id") int id) {
+        leadDAO.delete(id);
         return "redirect:/leads";
     }
 }
