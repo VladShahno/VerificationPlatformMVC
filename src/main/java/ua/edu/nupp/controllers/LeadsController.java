@@ -2,6 +2,8 @@ package ua.edu.nupp.controllers;
 
 import ua.edu.nupp.models.*;
 import ua.edu.nupp.dao.LeadDAO;
+
+import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -11,7 +13,10 @@ import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 
 @Controller
 @RequestMapping("/leads")
@@ -41,8 +46,12 @@ public class LeadsController {
         return "leads/new";
     }
 
-    @PostMapping
-    public String create(@ModelAttribute("lead") Lead lead) {
+    @PostMapping()
+    public String create(@ModelAttribute("lead") @Valid Lead lead,
+            BindingResult bindingResult) {
+        if (bindingResult.hasErrors())
+            return "leads/new";
+
         leadDAO.save(lead);
         return "redirect:/leads";
     }
@@ -52,14 +61,18 @@ public class LeadsController {
         model.addAttribute("lead", leadDAO.show(id));
         return "leads/edit";
     }
-    
-    
+
+
     @PatchMapping("/{id}")
-    public String update(@ModelAttribute("lead") Lead lead, @PathVariable("id") int id) {
+    public String update(@ModelAttribute("lead") @Valid Lead lead, BindingResult bindingResult,
+            @PathVariable("id") int id) {
+        if (bindingResult.hasErrors())
+            return "leads/edit";
+
         leadDAO.update(id, lead);
         return "redirect:/leads";
     }
-    
+
     @DeleteMapping("/{id}")
     public String delete(@PathVariable("id") int id) {
         leadDAO.delete(id);
