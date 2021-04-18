@@ -5,7 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
-import ua.edu.nupp.models.*;
+import ua.edu.nupp.models.Lead;
 
 @Component
 public class LeadDAO {
@@ -28,11 +28,11 @@ public class LeadDAO {
     }
 
     public void save(Lead lead) {
-        jdbcTemplate.update("INSERT INTO lead VALUES(1, ?, ?, ?, ?, ?)", lead.getFirstName(), lead.getLastName(), 
+        jdbcTemplate.update("INSERT INTO lead VALUES(?, ?, ?, ?, ?, ?)", lead.getId(), lead.getFirstName(), lead.getLastName(), 
                 lead.getTitle(), lead.getEmail(), lead.getProof());
     }
 
-    public void update(int id, Lead updatedLead) {
+    public void update(int id, Lead updatedLead){
         jdbcTemplate.update("UPDATE lead SET firstname=?, lastname=?, title=?, email=?, proof=? WHERE id=?", 
                 updatedLead.getFirstName(), updatedLead.getLastName(), updatedLead.getTitle(), 
                 updatedLead.getEmail(), updatedLead.getProof(), id);

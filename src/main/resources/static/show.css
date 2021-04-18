@@ -1,0 +1,11 @@
+@charset "UTF-8";
+.name {
+    display: flex;
+    flex-flow: row nowrap;
+    height: 100%;
+}
+
+.lastName {
+    flex: 1 1 auto;
+  margin: 0 10px;
+}

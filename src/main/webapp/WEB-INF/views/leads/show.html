@@ -1,26 +1,94 @@
 <!DOCTYPE html>
-<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
 <title>Lead</title>
 </head>
+<link th:href="@{/static/show.css}" rel="stylesheet">
 <body>
-    
-    <a th:href="@{/leads/{id}/edit(id=${lead.getId()})}">Edit</a>
-    <br/>
-	<p th:text="${lead.getId()}">VALUE</p>
-	<p th:text="${lead.getFirstName()}">VALUE</p>
-	<p th:text="${lead.getLastName()}">VALUE</p>
-	<p th:text="${lead.getTitle()}">VALUE</p>
-	<p th:text="${lead.getEmail()}">VALUE</p>
-	<p th:text="${lead.getProof()}">VALUE</p>
+	<form th:method="PATCH" th:action="@{/leads/{id}(id=${lead.getId()})}" th:object="${lead}">
+		<div class="contact">
+			<div class="name-email-company">
+				<label for="contact-Name-Email-Company">Name/Email/Company</label>
+				<div class="name">
+					<div class="firstName">
+						<input type="text" th:field="*{FirstName}" id="firstname" />
+					</div>
+					<div class="lastName">
+						<input type="text" th:field="*{LastName}" id="lastName" />
+					</div>
+				</div>
+				<div class="email">
+					<input type="text" th:field="*{Email}" id="email" />
+				</div>
+			</div>
+			<div class="title-proof">
+				<label for="contact-name2">Title/Proof</label>
+				<div class="title">
+					<input type="text" th:field="*{Title}" id="title" />
+				</div>
+				<div class="proof">
+					<input type="text" th:field="*{Proof}" id="proof" />
+				</div>
+			</div>
+			<input type="submit" value="Update!"/>
+		</div>
+	</form>
+	
+	<br />
+	<br />
+	<br />
+	<br />
 
-    <br/>
-    <hr/>
+	<form th:method="PATCH" th:action="@{/leads/{id}(id=${company.getId()})}" th:object="${company}">
+		<div class="company">
+			<div class="company-Name">
+			 <input type="text" th:field="*{Name}" id="name" />
+			</div>
+			<div class="employee-revenue">
+				<div class="employee">
+					<label for="employee">Employee</label>
+					<input type="text" th:field="*{Size}" id="employee" />
+					<input type="text" th:field="*{Sizeproof}" id="employeeproof" />
+				</div>
+				<div class="revenue">
+					<label for="revenue">Revenue</label>
+					<input type="text" th:field="*{Revenue}" id="revenue" />
+					<input type="text" th:field="*{Revenueproof}" id="revenueproof" />
+				</div>
+			</div>
+			<div class="industry">
+				<label for="industry">Industry</label>
+				<input type="text" th:field="*{Industry}" id="industry" />
+			</div>
+			<div class="phone">
+				<input type="text" th:field="*{Phone}" id="phone" />
+			</div>
+			<div class="Address">
+				<label for="Address">Address</label>
+				<div class="country">
+					<input type="text" th:field="*{Country}" id="country" />
+				</div>
+				<div class="state">
+					<input type="text" th:field="*{State}" id="state" />
+				</div>
+				<div class="street">
+					<input type="text" th:field="*{Street}" id="street" />
+				</div>
+				<div class="city">
+					<input type="text" th:field="*{city}" id="city" />
+				</div>
+				<div class="zip">
+					<input type="text" th:field="*{zip}" id="zip" />
+				</div>
+			</div>
+		</div>
+		<br />
+		<input type="submit" value="Update!"/>
 
-    <form th:method="DELETE" th:action="@{/leads/{id}(id=${lead.getId()})}">
-        <input type="submit" value="Delete"/>
-    </form>
+	</form>
+	<br />
+	<hr />
 
 </body>
 </html>

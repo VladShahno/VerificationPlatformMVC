@@ -4,18 +4,29 @@
 <meta charset="UTF-8">
 <title>All Leads</title>
 </head>
+<link th:href="@{/static/main.css}" rel="stylesheet">
 <body>
 
-	<div th:each="lead : ${leads}">
-        <a th:href="@{/leads/{id}(id=${lead.getId()})}"
-         th:text="${lead.getFirstName() + ', ' + lead.getLastName() + ', ' + lead.getTitle() 
+	<h1>Platform</h1>
+
+	<div class="column-left">
+		<div th:each="lead : ${leads}">
+			<a th:href="@{/leads/{id}(id=${lead.getId()})}"
+				th:text="${lead.getFirstName() + '  ' + lead.getLastName() + ', ' + lead.getTitle() 
          + ', ' + lead.getEmail() + ', ' + lead.getProof() }">lead</a>
-    </div>
+		</div>
+	</div>
+	<br>
+	<div class="column-right">
+		<div th:each="company : ${companies}">
+			<a th:href="@{/companies/{id}(id=${company.getId()})}"
+				th:text="${company.getName()+ '  ' + company.getStreet()+ '  ' + company.getCity()}">company</a>
+		</div>
+	</div>
+	<br />
+	<hr />
 
-    <br/>
-    <hr/>
-
-    <a href="/DipProject/leads/new">Create new Lead</a>
+	<a href="/DipProject/leads/new">Create new Lead</a>
 
 </body>
 </html>

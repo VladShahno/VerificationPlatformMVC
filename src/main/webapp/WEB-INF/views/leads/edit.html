@@ -5,7 +5,9 @@
 <title>Update Lead's data</title>
 </head>
 <body>
-
+    <div class="margin-mini-bottom">
+            <label for="contact-name" >Name/Email/Company</label>
+        </div>
     <form th:method="PATCH" th:action="@{/leads/{id}(id=${lead.getId()})}" th:object="${lead}">
 	    <label for="firstname"> First Name </label>
 	    <input type="text" th:field="*{FirstName}" id="firstname"/>

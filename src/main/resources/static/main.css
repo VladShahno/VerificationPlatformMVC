@@ -1,0 +1,25 @@
+@charset "UTF-8";
+
+h1 {
+	font-size: 16px !important;
+	position: relative;
+	background: #ba89b6;
+	color: #fff;
+	text-align: center;
+	padding: 1em 2em;
+	margin: 0 0 3em;
+}
+
+.column-left {
+	display: flex;
+	align-items: flex-start;
+	flex-wrap: nowrap;
+	height: 100%;
+}
+
+.column-right {
+	display: flex;
+	align-items: flex-start;
+	flex-wrap: nowrap;
+	height: 100%;
+}
