@@ -56,11 +56,8 @@ public class CompaniesController {
     }
       
     @PatchMapping("/{id}")
-    public String update(@ModelAttribute("company") @Valid Company company, BindingResult bindingResult,
+    public String update(@ModelAttribute("company")  Company company,
             @PathVariable("id") int id) {
-        if (bindingResult.hasErrors())
-            return "leads/show";
-
         companyDAO.update(id, company);
         return "redirect:/leads/{id}";
     }

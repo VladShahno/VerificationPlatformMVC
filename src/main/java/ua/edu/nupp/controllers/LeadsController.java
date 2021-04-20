@@ -55,22 +55,15 @@ public class LeadsController {
     }
 
     @PostMapping()
-    public String create(@ModelAttribute("lead") @Valid Lead lead,
-            BindingResult bindingResult) {
-        if (bindingResult.hasErrors())
-            return "leads/new";
-
+    public String create(@ModelAttribute("lead") Lead lead) {
         leadDAO.save(lead);
         return "redirect:/leads";
     }
-
-
+    
     @PatchMapping("/{id}")
-    public String update(@ModelAttribute("lead") Lead lead, @ModelAttribute("company") Company company,
+    public String update(@ModelAttribute("lead") Lead lead,
             @PathVariable("id") int id) {
-
         leadDAO.update(id, lead);
-        companyDAO.update(id, company);
         return "redirect:/leads/{id}";
     }
 
