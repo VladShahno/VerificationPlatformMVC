@@ -32,10 +32,10 @@ public class LeadDAO {
                 lead.getTitle(), lead.getEmail(), lead.getProof());
     }
 
-    public void update(int id, Lead updatedLead){
+    public void update(Lead updatedLead){
         jdbcTemplate.update("UPDATE lead SET firstname=?, lastname=?, title=?, email=?, proof=? WHERE id=?", 
                 updatedLead.getFirstName(), updatedLead.getLastName(), updatedLead.getTitle(), 
-                updatedLead.getEmail(), updatedLead.getProof(), id);
+                updatedLead.getEmail(), updatedLead.getProof(), updatedLead.getId());
     }
 
     public void delete(int id) {

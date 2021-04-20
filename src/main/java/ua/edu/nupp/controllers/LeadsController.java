@@ -60,11 +60,10 @@ public class LeadsController {
         return "redirect:/leads";
     }
     
-    @PatchMapping("/{id}")
-    public String update(@ModelAttribute("lead") Lead lead,
-            @PathVariable("id") int id) {
-        leadDAO.update(id, lead);
-        return "redirect:/leads/{id}";
+    @PostMapping("/update")
+    public String update(@ModelAttribute("lead") Lead lead) {
+        leadDAO.update(lead);
+        return "redirect:/leads/"+lead.getId();
     }
 
     @DeleteMapping("/{id}")

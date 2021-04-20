@@ -6,7 +6,8 @@
 </head>
 <link th:href="@{/static/show.css}" rel="stylesheet">
 <body>
-	<form th:method="POST" th:action="@{/leads}" th:object="${lead}">
+	<form th:method="POST" th:action="@{/leads/update}" th:object="${lead}">
+	<input type="hidden" th:field="*{id}">
 		<div class="contact">
 			<div class="name-email-company">
 				<label for="contact-Name-Email-Company">Name/Email/Company</label>
@@ -40,7 +41,8 @@
 	<br />
 	<br />
 
-	<form th:method="POST" th:action="@{/companies}" th:object="${company}">
+	<form th:method="POST" th:action="@{/companies/update}" th:object="${company}">
+    <input type="hidden" th:field="*{id}">
 		<div class="company">
 			<div class="company-Name">
 			 <input type="text" th:field="*{Name}" id="name" />
@@ -83,7 +85,6 @@
 				</div>
 			</div>
 		</div>
-		<a th:href="@{/companies/{id}/edit(id=${company.getId()})}">Edit</a>
 		<br />
 		<input type="submit" value="Update!"/>
 

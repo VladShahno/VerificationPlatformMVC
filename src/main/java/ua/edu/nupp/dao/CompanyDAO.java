@@ -36,9 +36,13 @@ public class CompanyDAO {
                 company.getCity(), company.getZip());
     }
 
-    public void update(int id, Company updatedcompany){
-        jdbcTemplate.update("UPDATE company SET name=? WHERE id=?", 
-                updatedcompany.getName(), id);
+    public void update(Company updatedcompany){
+        jdbcTemplate.update("UPDATE company SET name=?, sizeproof=?, size=?, revenueproof=?, "
+                + "revenue=?, industry=?, phone=?, country=?, state=?, street=?, city=?, zip=? WHERE id=?", 
+                updatedcompany.getName(), updatedcompany.getSizeproof(), 
+                updatedcompany.getSize(), updatedcompany.getRevenueproof(), updatedcompany.getRevenue(), updatedcompany.getIndustry(),
+                updatedcompany.getPhone(), updatedcompany.getCountry(), updatedcompany.getState(), updatedcompany.getStreet(), 
+                updatedcompany.getCity(), updatedcompany.getZip() , updatedcompany.getId());
     }
     
     public void delete(int id) {

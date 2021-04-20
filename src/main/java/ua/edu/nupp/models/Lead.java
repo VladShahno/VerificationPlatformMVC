@@ -8,16 +8,10 @@ public class Lead {
     private int id;
     
     
-    //@Size(min = 2, max = 30, message = "Name should be between 2 and 30 characters")
-    private String firstName;
-    
+    private String firstName;   
     private String lastName;
     private String title;
-    
-    //@NotEmpty(message = "Email must not be empty")
-    //@Email(message = "Email must be valid")
     private String email;
-    
     private String proof;
     
     public Lead() {

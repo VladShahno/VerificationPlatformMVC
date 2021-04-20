@@ -55,11 +55,10 @@ public class CompaniesController {
         return "redirect:/companies";
     }
       
-    @PatchMapping("/{id}")
-    public String update(@ModelAttribute("company")  Company company,
-            @PathVariable("id") int id) {
-        companyDAO.update(id, company);
-        return "redirect:/leads/{id}";
+    @PostMapping("/update")
+    public String update(@ModelAttribute("company") Company company) {
+        companyDAO.update(company);
+        return "redirect:/leads/"+company.getId();
     }
 
     @DeleteMapping("/{id}")
