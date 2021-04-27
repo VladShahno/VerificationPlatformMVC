@@ -2,19 +2,16 @@ package ua.edu.nupp.controllers;
 
 import ua.edu.nupp.dao.CompanyDAO;
 import ua.edu.nupp.models.Company;
-import ua.edu.nupp.models.Lead;
 
-import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
@@ -46,17 +43,13 @@ public class CompaniesController {
     }
     
     @PostMapping()
-    public String create(@ModelAttribute("company") @Valid Company company,
-            BindingResult bindingResult) {
-        if (bindingResult.hasErrors())
-            return "companies/new";
-
+    public String create(@ModelAttribute("company")  Company company) {
         companyDAO.save(company);
-        return "redirect:/companies";
+        return "redirect:/leads";
     }
       
     @PostMapping("/update")
-    public String update(@ModelAttribute("company") Company company) {
+    public String update(@RequestBody Company company) {
         companyDAO.update(company);
         return "redirect:/leads/"+company.getId();
     }

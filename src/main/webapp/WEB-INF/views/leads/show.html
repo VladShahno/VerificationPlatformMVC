@@ -3,20 +3,22 @@
 <head>
 <meta charset="UTF-8">
 <title>Lead</title>
+<script src='http://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.js'></script>
 </head>
 <link th:href="@{/static/show.css}" rel="stylesheet">
+<script type="text/javascript" th:src="@{/static/action.js}"></script>
 <body>
-	<form th:method="POST" th:action="@{/leads/update}" th:object="${lead}">
-	<input type="hidden" th:field="*{id}">
+	<form class="lead-form" th:object="${lead}">
+		<input type="hidden" th:field="*{id}" id="leadID">
 		<div class="contact">
 			<div class="name-email-company">
 				<label for="contact-Name-Email-Company">Name/Email/Company</label>
 				<div class="name">
 					<div class="firstName">
-						<input type="text" th:field="*{FirstName}" id="firstname" />
+						<input type="text" th:field="*{FirstName}"  id="firstname" />
 					</div>
 					<div class="lastName">
-						<input type="text" th:field="*{LastName}" id="lastName" />
+						<input type="text" th:field="*{LastName}" id="lastname" />
 					</div>
 				</div>
 				<div class="email">
@@ -32,36 +34,38 @@
 					<input type="text" th:field="*{Proof}" id="proof" />
 				</div>
 			</div>
-			<input type="submit" value="Update!"/>
+			<!-- <div class="lead-submit-button">
+				<input type="submit" value="Update Lead data" />
+			</div> -->
 		</div>
 	</form>
-	
+
 	<br />
 	<br />
 	<br />
 	<br />
 
-	<form th:method="POST" th:action="@{/companies/update}" th:object="${company}">
-    <input type="hidden" th:field="*{id}">
+	<form class="company-form" th:object="${company}">
+		<input type="hidden" th:field="*{id}" id="companyId">
 		<div class="company">
 			<div class="company-Name">
-			 <input type="text" th:field="*{Name}" id="name" />
+				<input type="text" th:field="*{Name}" id="name" />
 			</div>
 			<div class="employee-revenue">
 				<div class="employee">
-					<label for="employee">Employee</label>
-					<input type="text" th:field="*{Size}" id="employee" />
+					<label for="employee">Employee</label> 
+					<input type="text" th:field="*{Size}" id="employee"/> 
 					<input type="text" th:field="*{Sizeproof}" id="employeeproof" />
 				</div>
 				<div class="revenue">
 					<label for="revenue">Revenue</label>
-					<input type="text" th:field="*{Revenue}" id="revenue" />
+					<input type="text" th:field="*{Revenue}" id="revenue" /> 
 					<input type="text" th:field="*{Revenueproof}" id="revenueproof" />
 				</div>
 			</div>
 			<div class="industry">
-				<label for="industry">Industry</label>
-				<input type="text" th:field="*{Industry}" id="industry" />
+				<label for="industry">Industry</label> <input type="text"
+					th:field="*{Industry}" id="industry" />
 			</div>
 			<div class="phone">
 				<input type="text" th:field="*{Phone}" id="phone" />
@@ -85,12 +89,10 @@
 				</div>
 			</div>
 		</div>
-		<br />
-		<input type="submit" value="Update!"/>
-
 	</form>
+	<input type="submit" id="submitTwo" value="send">
 	<br />
 	<hr />
-
+	
 </body>
 </html>

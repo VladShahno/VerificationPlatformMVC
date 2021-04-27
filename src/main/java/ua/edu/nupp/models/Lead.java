@@ -1,9 +1,5 @@
 package ua.edu.nupp.models;
 
-import javax.validation.constraints.Email;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.Size;
-
 public class Lead {
     private int id;
     
@@ -73,6 +69,12 @@ public class Lead {
 
     public void setProof(String proof) {
         this.proof = proof;
+    }
+
+    @Override
+    public String toString() {
+        return "Lead [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", title=" + title
+                + ", email=" + email + ", proof=" + proof + "]";
     }
     
     

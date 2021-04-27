@@ -29,7 +29,7 @@ public class CompanyDAO {
     }
 
     public void save(Company company) {
-        jdbcTemplate.update("INSERT INTO company VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", company.getId(), 
+        jdbcTemplate.update("INSERT INTO company VALUES(DEFAULT, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", 
                 company.getName(), company.getSizeproof(), 
                 company.getSize(), company.getRevenueproof(), company.getRevenue(), company.getIndustry(),
                 company.getPhone(), company.getCountry(), company.getState(), company.getStreet(), 
