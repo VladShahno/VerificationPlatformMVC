@@ -141,5 +141,12 @@ public class Company {
     public void setPhone(String phone) {
         this.phone = phone;
     }
+
+    @Override
+    public String toString() {
+        return "Company [id=" + id + ", name=" + name + ", street=" + street + ", city=" + city + ", state=" + state
+                + ", zip=" + zip + ", country=" + country + ", size=" + size + ", sizeproof=" + sizeproof + ", revenue="
+                + revenue + ", revenueproof=" + revenueproof + ", industry=" + industry + ", phone=" + phone + "]";
+    }
     
 }

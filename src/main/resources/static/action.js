@@ -16,8 +16,8 @@ $(document).ready(function (){
 //		Number.parseInt($("#leadId").val()),
 		let lead = {
 				id: 1,
-				firstname: $("#firstname").val(),
-				lastname: $("#lastname").val(),
+				firstName: $("#firstName").val(),
+				lastName: $("#lastName").val(),
 				email: $("#email").val(),
 				title: $("#title").val(),
 				proof: $("#proof").val(),
@@ -26,8 +26,8 @@ $(document).ready(function (){
 		let company = {
 				id: 1,
 				name: $("#name").val(),
-				employee: $("#employee").val(),
 				sizeproof: $("#employeeproof").val(),
+				size: $("#size").val(),
 				revenue: $("#revenue").val(),
 				revenueproof: $("#revenueproof").val(),
 				industry: $("#industry").val(),
