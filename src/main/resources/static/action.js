@@ -1,30 +1,15 @@
-//$("#submitTwo").click(function (){
-//alert('lol');
-////http://localhost:8080/DipProject/leads/
-////http://localhost:8080/DipProject/companies/
-//$.ajax('http://localhost:8080/', {
-//method: 'POST',
-//data: {
-//message: 'lol'
-//},
-//contentType: 'application/json'
-//})
-//})
 $(document).ready(function (){
 	$("#submitTwo").click(function() {
-
-//		Number.parseInt($("#leadId").val()),
 		let lead = {
-				id: 1,
+				id: parseInt($("#leadId").val()),
 				firstName: $("#firstName").val(),
 				lastName: $("#lastName").val(),
 				email: $("#email").val(),
 				title: $("#title").val(),
 				proof: $("#proof").val(),
 		};
-//		Number.parseInt($("#companyId").val())
 		let company = {
-				id: 1,
+				id: parseInt($("#companyId").val()),
 				name: $("#name").val(),
 				sizeproof: $("#employeeproof").val(),
 				size: $("#size").val(),
@@ -38,8 +23,6 @@ $(document).ready(function (){
 				city: $("#city").val(),
 				zip: $("#zip").val(),
 		};
-		console.log(company);
-		console.log(lead);
 		$.ajax('http://localhost:8080/DipProject/leads/update', {
 			method: 'POST',
 			data: JSON.stringify(lead),
@@ -52,6 +35,5 @@ $(document).ready(function (){
 			contentType: 'application/json; charset=utf-8',
 			dataType: 'json',
 		});
-		alert('Everything is done!');
-	})            
+	})
 })

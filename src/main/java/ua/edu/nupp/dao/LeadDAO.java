@@ -28,7 +28,7 @@ public class LeadDAO {
     }
 
     public void save(Lead lead) {
-        jdbcTemplate.update("INSERT INTO lead VALUES(?, ?, ?, ?, ?, ?)", lead.getId(), lead.getFirstName(), lead.getLastName(), 
+        jdbcTemplate.update("INSERT INTO lead VALUES(DEFAULT, ?, ?, ?, ?, ?)", lead.getFirstName(), lead.getLastName(), 
                 lead.getTitle(), lead.getEmail(), lead.getProof());
     }
 
