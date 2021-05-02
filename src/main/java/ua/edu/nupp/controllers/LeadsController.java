@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.ui.Model;
 
 @Controller
@@ -49,9 +50,10 @@ public class LeadsController {
     }
 
     @PostMapping()
-    public String create(@ModelAttribute("lead") Lead lead) {
+    public String create(@ModelAttribute("lead") Lead lead, @ModelAttribute("company") Company company) {
         leadDAO.save(lead);
-        return "redirect:/leads/"+lead.getId();
+        companyDAO.save(company);
+        return "redirect:/leads/";
     }
     
     @PostMapping("/update")
@@ -61,7 +63,7 @@ public class LeadsController {
         return "redirect:/leads/"+lead.getId();
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/delete")
     public String delete(@PathVariable("id") int id) {
         leadDAO.delete(id);
         return "redirect:/leads";

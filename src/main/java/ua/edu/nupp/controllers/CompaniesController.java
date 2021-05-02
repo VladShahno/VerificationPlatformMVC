@@ -39,7 +39,7 @@ public class CompaniesController {
     
     @GetMapping("/new")
     public String newCompany(@ModelAttribute("company") Company company) {
-        return "companies/new";
+        return "leads/new";
     }
     
     @PostMapping()

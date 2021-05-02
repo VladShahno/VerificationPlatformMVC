@@ -34,7 +34,7 @@ body{
 	position: absolute;
 	margin-top: -100px;
 	margin-left: -100%;
-	padding-right: 202%;
+	padding-right: 102%;
 }
 
 ::-webkit-input-placeholder {
@@ -212,13 +212,10 @@ body{
 		</div>
 	</div>
 	<div style="position: absolute; top: 10px; left: 10%;">
-		<a href="/leads" class="btn btn-info">Release</a>
+		<a href="/DipProject/leads" class="btn btn-info">Release</a>
 		<button type="button" class="btn btn-success">Next</button>
 		<input type="submit" class="btn btn-success" id="submitTwo"
 			value="Save">
-			<form class="btn btn-info" th:method="DELETE" th:action="@{/leads/{id}(id=${lead.getId()})}">
-        <input type="submit" value="Delete"/>
-    </form>
 	</div>
 </body>
 </html>

@@ -1,97 +1,210 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="UTF-8">
-<title>Create new lead</title>
+<meta charset="utf-8">
+<title>New</title>
+<script src='http://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.js'></script>
+<script type="text/javascript" th:src="@{/static/createaction.js}"></script>
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<meta content="" name="keywords">
+<meta content="" name="description">
+<style>
+
+body{
+    background: url([[@{/static/back.jpg}]])
+                no-repeat;
+                background-size: 100%;
+
+.right {
+    position: relative;
+    float: right;
+}
+
+.inner_div {
+    position: absolute;
+    margin-left: -100%;
+}
+
+.address {
+    position: absolute;
+    margin-top: -100px;
+    margin-left: -100%;
+    padding-right: 202%;
+}
+
+::-webkit-input-placeholder {
+    text-align: center;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+    text-align: center;
+}
+
+::-moz-placeholder { /* Firefox 19+ */
+    text-align: center;
+}
+
+:-ms-input-placeholder {
+    text-align: center;
+}
+</style>
+
 </head>
+<link rel="stylesheet"
+    th:href="@{/webjars/bootstrap/4.6.0-1/css/bootstrap.min.css}" />
 <body>
+    <div style="height: 10px;"></div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class='col-2'>
+                <label for="Steroids">Steroids</label><br>
+                    <a href="https://www.google.com/search?newwindow=1&amp"
+                        class="clipboard-copy">Name + Company</a><br>
+                    <a href="https://www.google.com/search?newwindow=1&amp"
+                        class="clipboard-copy">"Email"</a><br>
+                    <a href="https://www.google.com/search?newwindow=1&amp"
+                        class="clipboard-copy">"Name" + "Company"</a><br>
+                    <a href="https://www.google.com/search?newwindow=1&amp"
+                        class="clipboard-copy">"Name" + "Company" + "Title"</a>
+                    <a href="https://www.google.com/search?newwindow=1&amp"
+                        class="clipboard-copy">Internal Linkedin</a><br>
+                    <a href="https://www.google.com/search?newwindow=1&amp"
+                        class="clipboard-copy">Facebook</a><br>
+                    <a href="https://www.google.com/search?newwindow=1&amp"
+                        class="clipboard-copy">Zoominfo</a>
 
-	<form th:method="POST" th:action="@{/leads}" th:object="${lead}">
-        <input type="hidden" th:field="*{id}">
-        <div class="contact">
-            <div class="name-email-company">
-                <label for="contact-Name-Email-Company">Name/Email/Company</label>
-                <div class="name">
-                    <div class="firstName">
-                        <input type="text" th:field="*{FirstName}" id="firstname" />
-                    </div>
-                    <div class="lastName">
-                        <input type="text" th:field="*{LastName}" id="lastName" />
-                    </div>
-                </div>
-                <div class="email">
-                    <input type="text" th:field="*{Email}" id="email" />
-                </div>
             </div>
-            <div class="title-proof">
-                <label for="contact-name2">Title/Proof</label>
-                <div class="title">
-                    <input type="text" th:field="*{Title}" id="title" />
-                </div>
-                <div class="proof">
-                    <input type="text" th:field="*{Proof}" id="proof" />
-                </div>
+            <div class='col-5'>
+                <form class="lead-form" th:object="${lead}">
+                    <input type="hidden" th:field="*{id}" id="leadId">
+                    <div class="form-group row" align="center">
+                        <div class="col-12">
+                            <label for="contact-Name-Email-Company">Name/Email/Company</label>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <input type="text" class="form-control" placeholder="firstName"
+                                th:field="*{FirstName}" id="firstName" />
+                        </div>
+                        <div class="form-group col-md-6">
+                            <input type="text" class="form-control" th:field="*{LastName}"
+                                placeholder="LastName" id="lastName" />
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-12">
+                            <input type="text" class="form-control" th:field="*{Email}"
+                                placeholder="Email" id="email" />
+                        </div>
+                    </div>
+                    <div class="form-group row" align="center"
+                        style="margin-top: 70px;">
+                        <div class="col-12">
+                            <label for="contact-name2">Title/Proof</label>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-12">
+                            <input type="text" class="form-control" th:field="*{Title}"
+                                placeholder="Title" id="title" />
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-12">
+                            <input type="text" class="form-control" th:field="*{Proof}"
+                                placeholder="Proof" id="proof" />
+                        </div>
+                    </div>
+                </form>
             </div>
-            <div class="lead-submit-button">
-                <input type="submit" value="Create Lead" />
+            <div class='col-5'>
+                <form class="company-form" th:object="${company}">
+                     <input type="hidden" th:field="*{id}" id="companyId"> 
+                    <div class="form-group row" align="center">
+                        <div class="col-12">
+                            <label for="contact-Name-Email-Company">Employee/Revenue</label>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <input type="text" class="form-control" th:field="*{Sizeproof}" id="employeeproof" />
+                        </div>
+                        <div class="form-group col-md-6">
+                            <input type="text" class="form-control"
+                                th:field="*{Revenueproof}" id="revenueproof" />
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <input type="text" class="form-control" th:field="*{Size}" id="size" />
+                        </div>
+                        <div class="form-group col-md-6">
+                            <input type="text" class="form-control" th:field="*{Revenue}" id="revenue" />
+                        </div>
+                    </div>
+                    <div class="form-group row pull-2">
+                        <div class="col-12 inner_div">
+                            <input type="text" class="form-control" th:field="*{name}"
+                                id="name" placeholder="Name" />
+                        </div>
+                    </div>
+                    <div class="form-group row" align="center" style="">
+                        <div class="col-12">
+                            <label for="industry">Industry</label> 
+                            <input type="text" class="form-control" th:field="*{Industry}" id="industry"/>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-12">
+                            <textarea id="textarea" name="textarea" cols="40" rows="5"
+                                class="form-control">Comments</textarea>
+                        </div>
+                    </div>
+                    <div class="form-group row"
+                        style="position: relative; margin-top: 20px;">
+                        <div class="col-12">
+                            <input type="text" class="form-control" th:field="*{Phone}" id="phone" />
+                        </div>
+                    </div>
+                    <div class="address">
+                        <div class="form-group row" align="center">
+                            <div class="col-12">
+                                <label for="Address">Address</label>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <input type="text" class="form-control" th:field="*{Country}"
+                                    placeholder="Country" id="country" />
+                            </div>
+                            <div class="form-group col-md-6">
+                                <input type="text" class="form-control" th:field="*{State}"
+                                    placeholder="State" id="state" />
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-4">
+                                <input type="text" class="form-control" th:field="*{Street}"
+                                    placeholder="Street" id="street" />
+                            </div>
+                            <div class="form-group col-md-4">
+                                <input type="text" class="form-control" th:field="*{city}"
+                                    id="city" placeholder="City" />
+                            </div>
+                            <div class="form-group col-md-4">
+                                <input type="text" class="form-control" th:field="*{zip}"
+                                    id="zip" placeholder="ZIP" />
+                            </div>
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
-    </form>
-
-    <br />
-    <br />
-    <br />
-    <br />
-
-    <form th:method="POST" th:action="@{/companies}" th:object="${company}">
-        <input type="hidden" th:field="*{id}">
-        <div class="company">
-            <div class="company-Name">
-                <input type="text" th:field="*{Name}" id="name" />
-            </div>
-            <div class="employee-revenue">
-                <div class="employee">
-                    <label for="employee">Employee</label> <input type="text"
-                        th:field="*{Size}" id="employee" /> <input type="text"
-                        th:field="*{Sizeproof}" id="employeeproof" />
-                </div>
-                <div class="revenue">
-                    <label for="revenue">Revenue</label> <input type="text"
-                        th:field="*{Revenue}" id="revenue" /> <input type="text"
-                        th:field="*{Revenueproof}" id="revenueproof" />
-                </div>
-            </div>
-            <div class="industry">
-                <label for="industry">Industry</label> <input type="text"
-                    th:field="*{Industry}" id="industry" />
-            </div>
-            <div class="phone">
-                <input type="text" th:field="*{Phone}" id="phone" />
-            </div>
-            <div class="Address">
-                <label for="Address">Address</label>
-                <div class="country">
-                    <input type="text" th:field="*{Country}" id="country" />
-                </div>
-                <div class="state">
-                    <input type="text" th:field="*{State}" id="state" />
-                </div>
-                <div class="street">
-                    <input type="text" th:field="*{Street}" id="street" />
-                </div>
-                <div class="city">
-                    <input type="text" th:field="*{city}" id="city" />
-                </div>
-                <div class="zip">
-                    <input type="text" th:field="*{zip}" id="zip" />
-                </div>
-            </div>
-            <div class="company-submit-button">
-                <input type="submit" value="Create Company" />
-            </div>
-        </div>
-
-    </form>
-
+    </div>
+    <div style="position: absolute; top: 10px; left: 10%;">
+        <input type="submit" class="btn btn-success" id="submitTwo"
+            value="Create new Lead">
+    </div>
 </body>
 </html>

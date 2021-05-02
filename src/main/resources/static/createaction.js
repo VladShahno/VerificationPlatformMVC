@@ -23,13 +23,13 @@ $(document).ready(function (){
 				city: $("#city").val(),
 				zip: $("#zip").val(),
 		};
-		$.ajax('http://localhost:8080/leads/update', {
+		$.ajax('http://localhost:8080/leads', {
 			method: 'POST',
 			data: JSON.stringify(lead),
 			contentType: 'application/json; charset=utf-8',
 			dataType: 'json',
 		});
-		$.ajax('http://localhost:8080/companies/update', {
+		$.ajax('http://localhost:8080/leads', {
 			method: 'POST',
 			data: JSON.stringify(company),
 			contentType: 'application/json; charset=utf-8',
