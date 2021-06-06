@@ -1,25 +1,155 @@
 @charset "UTF-8";
-
-h1 {
-	font-size: 16px !important;
-	position: relative;
-	background: #ba89b6;
-	color: #fff;
-	text-align: center;
-	padding: 1em 2em;
-	margin: 0 0 3em;
+.label-lead {
+    padding: 5px;
+    display: flex;
+    overflow: auto;
+    width: fit-content;
+    flex-direction: column;
+    align-content: stretch;
 }
+
+.label-company {
+    padding: 5px;
+    display: flex;
+    overflow: auto;
+    width: fit-content;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.flex-container-lead {
+    justify-content: space-evenly;
+    padding: 5px;
+	display: flex;
+	}
+
+.main-div {
+    padding: 5px;
+	display: flex;
+	overflow: auto;
+	width: fit-content;
+	}
 
 .column-left {
-	display: flex;
-	align-items: flex-start;
-	flex-wrap: nowrap;
-	height: 100%;
-}
+	width: 1200px;
+	}
+
+.flex-name {
+		width: 5%;
+	}
+
+.flex-surname {
+	width: 7%;
+	}
+
+.flex-position {
+	width: 25%;
+	}
+
+.flex-email {
+	width: 23%;
+	}
+
+.flex-link {
+	width: 20%;
+	white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+	}
 
 .column-right {
-	display: flex;
-	align-items: flex-start;
-	flex-wrap: nowrap;
-	height: 100%;
+	width: 1200px;
+	}
+
+.flex-container-company {
+        padding: 5px;
+	    display: flex;
+        justify-content: space-evenly;
+        align-items: flex-start;
+	}
+
+.flex-company-name {
+    width: 13%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
 }
+
+.flex-street {
+    width: 9%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.flex-city {
+    width: 7%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.flex-state {
+    width: 2%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.flex-zip {
+    width: 5%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.flex-country {
+    width: 6%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.flex-phone {
+   width: 10%;
+   white-space: nowrap;
+   overflow: hidden;
+   text-overflow: ellipsis;
+}
+
+.flex-employee {
+    width: 5%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.flex-employee-proofLink {
+    width: 5%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.flex-industry {
+   width: 10%;
+   white-space: nowrap;
+   overflow: hidden;
+   text-overflow: ellipsis;
+}
+
+.flex-revenue {
+    width: 5%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;;
+}
+
+.flex-revenue-proofLink {
+    width: 5%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+

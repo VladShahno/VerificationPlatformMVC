@@ -28,14 +28,19 @@ public class LeadDAO {
     }
 
     public void save(Lead lead) {
-        jdbcTemplate.update("INSERT INTO lead VALUES(DEFAULT, ?, ?, ?, ?, ?)", lead.getFirstName(), lead.getLastName(), 
-                lead.getTitle(), lead.getEmail(), lead.getProof());
+        jdbcTemplate.update("INSERT INTO lead VALUES(?, ?, ?, ?, ?, ?, ?)", lead.getId(), lead.getFirstName(), lead.getLastName(),
+                lead.getTitle(), lead.getEmail(), lead.getProof(), lead.getVerdict());
     }
 
     public void update(Lead updatedLead){
-        jdbcTemplate.update("UPDATE lead SET firstname=?, lastname=?, title=?, email=?, proof=? WHERE id=?", 
-                updatedLead.getFirstName(), updatedLead.getLastName(), updatedLead.getTitle(), 
-                updatedLead.getEmail(), updatedLead.getProof(), updatedLead.getId());
+        jdbcTemplate.update("UPDATE lead SET firstname=?, lastname=?, title=?, email=?, proof=?, verdict=? WHERE id=?",
+                updatedLead.getFirstName(),
+                updatedLead.getLastName(),
+                updatedLead.getTitle(),
+                updatedLead.getEmail(),
+                updatedLead.getProof(),
+                updatedLead.getVerdict(),
+                updatedLead.getId());
     }
 
     public void delete(int id) {

@@ -1,26 +1,29 @@
 package ua.edu.nupp.models;
 
+import java.util.Objects;
+
 public class Lead {
+
     private int id;
-    
-    
     private String firstName;   
     private String lastName;
     private String title;
     private String email;
     private String proof;
-    
+    private String verdict;
+
     public Lead() {
         
     }
 
-    public Lead(int id, String firstName, String lastName, String title, String email, String proof) {
+    public Lead(int id, String firstName, String lastName, String title, String email, String proof, String verdict) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.title = title;
         this.email = email;
         this.proof = proof;
+        this.verdict = verdict;
     }
 
     public int getId() {
@@ -71,12 +74,37 @@ public class Lead {
         this.proof = proof;
     }
 
+    public String getVerdict() {
+        return verdict;
+    }
+
+    public void setVerdict(String verdict) {
+        this.verdict = verdict;
+    }
+
     @Override
     public String toString() {
-        return "Lead [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", title=" + title
-                + ", email=" + email + ", proof=" + proof + "]";
+        return "Lead{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", title='" + title + '\'' +
+                ", email='" + email + '\'' +
+                ", proof='" + proof + '\'' +
+                ", verdict='" + verdict + '\'' +
+                '}';
     }
-    
-    
-    
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Lead lead = (Lead) o;
+        return id == lead.id && Objects.equals(firstName, lead.firstName) && Objects.equals(lastName, lead.lastName) && Objects.equals(title, lead.title) && Objects.equals(email, lead.email) && Objects.equals(proof, lead.proof) && Objects.equals(verdict, lead.verdict);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, firstName, lastName, title, email, proof, verdict);
+    }
 }

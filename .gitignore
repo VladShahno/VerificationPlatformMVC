@@ -1,1 +1,8 @@
 /target/
+/.idea/
+/target/
+/DipProject.iml
+/.settings/
+/src/main/java/META-INF/
+/src/main/resources/static/Thumbs.db
+/src/main/webapp/WEB-INF/

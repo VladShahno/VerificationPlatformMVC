@@ -37,16 +37,15 @@ public class CompaniesController {
         return "companies/show";
     }
     
-    @GetMapping("/new")
-    public String newCompany(@ModelAttribute("company") Company company) {
-        return "leads/new";
-    }
+    /*
+     * @GetMapping("/new") public String newCompany(@ModelAttribute("company")
+     * Company company) { return "leads/new"; }
+     */
     
-    @PostMapping()
-    public String create(@ModelAttribute("company")  Company company) {
-        companyDAO.save(company);
-        return "redirect:/leads";
-    }
+    /*
+     * @PostMapping() public String create(@ModelAttribute("company") Company
+     * company) { companyDAO.save(company); return "redirect:/leads"; }
+     */
       
     @PostMapping("/update")
     public String update(@RequestBody Company company) {
@@ -54,9 +53,8 @@ public class CompaniesController {
         return "redirect:/leads/"+company.getId();
     }
 
-    @DeleteMapping("/{id}")
-    public String delete(@PathVariable("id") int id) {
-        companyDAO.delete(id);
-        return "redirect:/leads";
-    }
+    /*
+     * @DeleteMapping("/{id}") public String delete(@PathVariable("id") int id) {
+     * companyDAO.delete(id); return "redirect:/leads"; }
+     */
 }

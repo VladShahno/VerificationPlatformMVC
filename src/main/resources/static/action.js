@@ -7,6 +7,7 @@ $(document).ready(function (){
 				email: $("#email").val(),
 				title: $("#title").val(),
 				proof: $("#proof").val(),
+				verdict: $("#verdict").val(),
 		};
 		let company = {
 				id: parseInt($("#companyId").val()),
@@ -35,5 +36,6 @@ $(document).ready(function (){
 			contentType: 'application/json; charset=utf-8',
 			dataType: 'json',
 		});
+		alert("Data is saved!");
 	})
 })

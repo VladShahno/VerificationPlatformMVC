@@ -76,7 +76,7 @@ body{
             </div>
             <div class='col-5'>
                 <form class="lead-form" th:object="${lead}">
-                    <input type="hidden" th:field="*{id}" id="leadId">
+                     <input type="hidden" th:field="*{id}" id="leadId">
                     <div class="form-group row" align="center">
                         <div class="col-12">
                             <label for="contact-Name-Email-Company">Name/Email/Company</label>
@@ -120,7 +120,7 @@ body{
             </div>
             <div class='col-5'>
                 <form class="company-form" th:object="${company}">
-                     <input type="hidden" th:field="*{id}" id="companyId"> 
+                     <input type="hidden" th:field="*{id}" id="companyId">  
                     <div class="form-group row" align="center">
                         <div class="col-12">
                             <label for="contact-Name-Email-Company">Employee/Revenue</label>
@@ -203,6 +203,7 @@ body{
         </div>
     </div>
     <div style="position: absolute; top: 10px; left: 10%;">
+        <a href="/leads" class="btn btn-info">Release</a>
         <input type="submit" class="btn btn-success" id="submitTwo"
             value="Create new Lead">
     </div>

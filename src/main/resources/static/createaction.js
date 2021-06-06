@@ -7,6 +7,7 @@ $(document).ready(function (){
 				email: $("#email").val(),
 				title: $("#title").val(),
 				proof: $("#proof").val(),
+				verdict: $("#verdict").val(),
 		};
 		let company = {
 				id: parseInt($("#companyId").val()),
@@ -23,13 +24,13 @@ $(document).ready(function (){
 				city: $("#city").val(),
 				zip: $("#zip").val(),
 		};
-		$.ajax('http://localhost:8080/leads', {
+		$.ajax('http://localhost:8080/leads/new', {
 			method: 'POST',
 			data: JSON.stringify(lead),
 			contentType: 'application/json; charset=utf-8',
 			dataType: 'json',
 		});
-		$.ajax('http://localhost:8080/leads', {
+		$.ajax('http://localhost:8080/leads/new', {
 			method: 'POST',
 			data: JSON.stringify(company),
 			contentType: 'application/json; charset=utf-8',
